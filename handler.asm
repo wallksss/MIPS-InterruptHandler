@@ -201,11 +201,12 @@ __resume:
 	lw $a2, 16($t0)
 	lw $a3, 20($t0)
 	lw $v1, 24($t0)
-	lw $t0, 28($t0)
 	lw $t1, 32($t0)
 	lw $s0, 36($t0)
 	lw $ra, 40($t0)	
 	addi $t0, $t0, 44
+	
+	#Falta restaurar o t0
 	
 	mfc0 $k0 $12		# Set Status register
 	ori  $k0 0x1		# Interrupts enabled (I dont know if it's necessary)
