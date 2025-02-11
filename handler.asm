@@ -1,7 +1,7 @@
 ###############################################################################
 # KERNEL DATA SEGMENT
 ###############################################################################
-.kdata
+	.kdata
 __m1_:	.asciiz "  Exception "
 __m2_:	.asciiz " occurred and ignored\n"
 __m3_:  .asciiz "  Pressed key: "
@@ -31,26 +31,6 @@ __excp:	.word __e0_, __e1_, __e2_, __e3_, __e4_, __e5_, __e6_, __e7_, __e8_, __e
 kernel_stack: .space 1024	
 ###############################################################################
 # KERNEL TEXT SEGMENT 
-# 
-# The kernel handles all exceptions and interrupts.
-# 
-# The registers $k0 and $k1 should never be used by user level programs and 
-# can be used exclusively by the kernel. 
-#
-# In a real system the kernel must make sure not to alter any registers
-# in usr by any of the user level programs. For all such registers, the kernel
-# must make sure to save the register valued to memory before use. Later, before 
-# resuming execution of a user level program the kernel must restore the 
-# register values from memory. 
-# 
-# Note, that if the kernel uses any pseudo instruction that translates 
-# to instructions using $at, this may interfere with  user level programs 
-# using $at. In a real system, the kernel must  also save and restore the 
-# value of $at. 
-# 
-# For simplicity, this kernel will not save and retore any register values. 
-# Instead, the kernel can freely use any registers but $s0 which is used 
-# in the user program infinite loop to simulate an executing program.  
 ###############################################################################
 
    	# The exception vector address for MIPS32.
