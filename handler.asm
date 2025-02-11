@@ -41,7 +41,7 @@ __handler_entry_point:
 	la $k0, kernel_stack + 1024
 	addi $k0, $k0, -44
 	
-	#Save $at, which is used in pseudoinstructions. So we don't want to overwrite what's there.
+	#Save $at, which is used in pseudoinstructions. So we don't want to overwrite.
 	sw $at, 0($k0)
 	
 	#Get some free registers
@@ -208,9 +208,8 @@ __resume:
 	addi $t0, $t0, 44
 	
 	mfc0 $k0 $12		# Set Status register
-	ori  $k0 0x1		# Interrupts enabled
+	ori  $k0 0x1		# Interrupts enabled (I dont know if it's necessary)
 	mtc0 $k0 $12
 	
-	# Use the eret (Exception RETurn) instruction to set the program counter
-	# (PC) to the value saved in the ECP register (register 14 in coprocessor 0).
+	# Use the eret instruction to set the PC to the value saved in the EPC register.
 	eret
