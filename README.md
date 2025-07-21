@@ -28,7 +28,7 @@ The system is composed of two main parts:
 
 ### Prerequisites
 *   **Java Runtime Environment (JRE)**: MARS is a Java application and requires a JRE to run.
-*   **MARS Simulator**: You must have the MARS simulator. You can download it from its official page.
+*   **MARS Simulator**: You must have the MARS simulator. You can download it from its [https://dpetersanderson.github.io/](official page).
 
 ### Step-by-Step Instructions
 
